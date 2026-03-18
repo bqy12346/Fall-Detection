@@ -40,7 +40,11 @@ This project is a mini embedded systems project based on the ARM-based NUCLEO-L4
 3. Open a serial terminal program and connect to the board's COM port with the following settings: `115200` baud rate, `8` data bits, `No` parity, `1` stop bit.
 
 ## Demo
-Add photos, screenshots, or a short video link.
+Here is a short video demonstrating the fall detection system in action:
+
+<video src="docs/Fall-Demo.mp4" width="100%" controls>
+  Your browser does not support the video tag.
+</video>
 
 ## Author
 Boxuan Yu
