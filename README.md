@@ -1,38 +1,46 @@
 # Fall-Detection
 
 ## Overview
-This project is a mini embedded systems project based on the ARM-based NUCLEO-L476RG, an embedded system development board featuring a high-performance low-power microcontroller of type STM32L476RG.
-It implements [main function].
+This project is a mini embedded systems project based on the ARM-based NUCLEO-L476RG, an embedded system development board featuring a high-performance low-power microcontroller of type STM32L476RG. It implements a fall detection system designed to support elderly people in their daily lives.
 
 ## Features
-- Feature 1
-- Feature 2
-- Feature 3
+- **Dual-Algorithm Fall Detection**: Utilizes an Acceleration Vector Magnitude algorithm to detect instantaneous increases in total gravitational force, and a Tilt Angle Calculation using trigonometry to determine the board's vertical inclination.
+- **Adjustable Thresholds**: Users can modify threshold values to dtermine the optimal angle for all detection.
+- **Performance Profiling**: Measures computational efficiency using the DWT cycle counter. The vecto magnitude algorithm takes approximately 134 clock cycles, while the angle calculation takes about 460 clock cycles.
+- **Low-Power Operation**: Implements an energy-efficient duty cycle by alternating between an active data-acquisition state and a 5-second Sleep Mode.
+- **Real-Time Energy Evaluation**: Actively calculates and logs energy consumption, demonstrating that sleep mode consumes significantly less energy and dominates the period to save power.
 
 ## Hardware
-- MCU: STM32 / ESP32 / Arduino ...
-- Sensors: ...
-- Actuators: ...
-- Power supply: ...
+- MCU: NUCLEO-L476RG (STM32L476RG)
+- Sensors: Inertial Measurement Unit (IMU) located on the PBL Shield, communicating via SPI.
+- Actuators: Onboard LED (LED2) for visual fall alarms, and User Button (B1) for hardware interrupts and wakeups.
+- Power supply: USB (5V) / 3.3V internal NUCLEO regulator
 
 ## Software
-- Language: C / C++
-- IDE: STM32CubeIDE / Arduino IDE / PlatformIO
-- Framework / HAL: ...
+- Language: C
+- IDE: STM32CubeIDE
+- Framework / HAL: STM32 Hardware Abstraction Layer (HAL)
 
 ## Project Structure
-- `src/`: source code
-- `include/`: header files
-- `docs/`: documentation and figures
+- `Core/Src/main.c`: Core application logic, including SPI sensor reading, fall detection algorithms, performance profiling, and power management.
+- `Core/Src/stm32l4xx_it.c`: Interrupt service routines (e.g., EXTI lines for user buttons).
+- `Core/Src/stm32l4xx_hal_msp.c`: MCU Support Package for hardware-level peripheral initializations (SPI, UART, GPIO).
+- `Core/Src/system_stm32l4xx.c`: System clock configuration (setting the system frequency to 80 MHz ).
+- `docs/`: Contains project documentation, such as the energy evaluation and algorithms report.
 
 ## How to Build
-Explain how to compile and flash the code.
+1. Clone this repository to your local machine.
+2. Open the project directory using STM32CubeIDE.
+3. Ensure the project properties are configured for the STM32L476RG microcontroller.
+4. Click on the Build (hammer) icon in the IDE toolbar to compile the source code and generate the binaries.
 
 ## How to Run
-Explain how to test the project.
+1. Attach the PBL Shield to your NUCLEO-L476RG board.
+2. Connect the NUCLEO board to your PC via a mini-USB cable.
+3. Open a serial terminal program and connect to the board's COM port with the following settings: `115200` baud rate, `8` data bits, `No` parity, `1` stop bit.
 
 ## Demo
 Add photos, screenshots, or a short video link.
 
 ## Author
-Your name
+Boxuan Yu
