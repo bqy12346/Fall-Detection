@@ -42,9 +42,11 @@ This project is a mini embedded systems project based on the ARM-based NUCLEO-L4
 ## Demo
 Here is a short video demonstrating the fall detection system in action:
 
-<video src="docs/Fall-Demo.mp4" width="100%" controls>
-  Your browser does not support the video tag.
-</video>
+
+https://github.com/user-attachments/assets/7257fd28-9d2a-40cf-8805-17f7a69ad629
+
+
+
 
 ## Author
 Boxuan Yu
